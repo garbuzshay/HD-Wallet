@@ -64,6 +64,7 @@
 // };
 
 // export default CreateRestoreWallet;
+
 import React, { useState } from "react";
 import { useWallet } from "../contexts/WalletContext";
 import { useNavigate } from "react-router-dom";
@@ -100,7 +101,7 @@ const CreateRestoreWallet = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto">
+    <div className="max-w-lg mx-auto " >
       <h2 className="text-3xl font-bold mb-6 text-center text-purple-400">
         Create or Recover Wallet
       </h2>

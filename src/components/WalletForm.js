@@ -131,6 +131,8 @@ const WalletForm = ({ onCreateWallet, onRestoreWallet }) => {
   };
 
   return (
+
+    <div className="max-w-lg mx-auto p-4 min-h-screen flex flex-col">
     <div className="bg-gray-800 rounded-lg p-6 mb-6 border border-purple-500 shadow-neon-purple">
       
 
@@ -180,6 +182,7 @@ const WalletForm = ({ onCreateWallet, onRestoreWallet }) => {
           </Button>
         </div>
       )}
+    </div>
     </div>
   );
 };
