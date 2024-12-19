@@ -128,7 +128,7 @@ const SendTransaction = () => {
   }, [initialCurrency]);
 
   return (
-    <div className="max-w-lg mx-auto p-4 min-h-screen flex flex-col">
+    <div className="max-w-lg mx-auto  flex flex-col">
       <h2 className="text-3xl font-bold mb-6 text-center text-purple-400 flex items-center justify-center">
         <span className="mx-4">Send {currency}</span>
       </h2>

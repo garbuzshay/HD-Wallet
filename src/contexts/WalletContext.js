@@ -155,6 +155,7 @@ export const WalletProvider = ({ children }) => {
       setWallet(newWallet);
       // navigate('/dashboard');
       localStorage.setItem("mnemonic", mnemonic);
+      // console.log(mnemonic)
       return mnemonic;
     } catch (error) {
       console.error("Wallet creation failed:", error);

@@ -82,7 +82,9 @@ const CreateRestoreWallet = () => {
     }
     try {
       const newMnemonic = await createWallet(name, password);
+      console.log(newMnemonic)
       setMnemonic(newMnemonic);
+      // console.log(mnemonic);
     } catch (error) {
       console.error("Error creating wallet:", error);
     }
