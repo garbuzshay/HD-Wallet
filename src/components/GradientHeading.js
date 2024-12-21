@@ -1,4 +1,4 @@
-// src/components/GradientHeading.js
+
 import React from "react";
 
 const GradientHeading = ({ text }) => {

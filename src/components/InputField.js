@@ -1,4 +1,4 @@
-// src/components/InputField.js
+
 import React from 'react';
 
 const InputField = ({ value, onChange, placeholder }) => {

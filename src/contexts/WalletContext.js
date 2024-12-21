@@ -1,65 +1,3 @@
-// import React, { createContext, useContext, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-// const WalletContext = createContext();
-
-// export const useWallet = () => useContext(WalletContext);
-
-// export const WalletProvider = ({ children }) => {
-//   const [wallet, setWallet] = useState(null); // Wallet state
-//   const navigate = useNavigate();
-
-// const createWallet = (currency) => {
-//     // Generate a fake 12-word seed phrase
-//     const seedWords = Array.from({ length: 8 }, () =>
-//       Math.random().toString(36).substring(2, 8)
-//     ).join(" ");
-
-//     setWallet({ currency, seed: seedWords }); // Save wallet state
-
-//     // Alert the user with the seed phrase
-//     const userAcknowledged = window.confirm(
-//       `Your new code is:\n\n${seedWords}\n\nPlease save this before continuing in a safe place.`
-//     );
-
-//     // Only navigate if the user clicks "OK"
-//     if (userAcknowledged) {
-//       console.log(`Wallet created: ${currency}, Seed: ${seedWords}`);
-//       navigate("/dashboard");
-//     }
-//   };
-
-//   const restoreWallet = (seed) => {
-//     // Here you would validate the seed (simplified for this example)
-//     if (seed.startsWith("fake-seed")) {
-//       setWallet({ currency: "Ethereum", seed }); // Default to Ethereum for demo
-//       console.log(`Wallet restored with seed: ${seed}`);
-//       navigate("/dashboard");
-//     } else {
-//       alert("Invalid seed phrase.");
-//     }
-//   };
-
-//   const logout = () => {
-//     setWallet(null); // Clear wallet state
-//     navigate("/create-restore");
-//   };
-
-//   return (
-//     <WalletContext.Provider
-//       value={{
-//         wallet,
-//         createWallet,
-//         restoreWallet,
-//         logout,
-//       }}
-//     >
-//       {children}
-//     </WalletContext.Provider>
-//   );
-// };
-// src/contexts/WalletContext.js
-// File: contexts/WalletContext.js
 
 import React, {
   createContext,
@@ -84,12 +22,6 @@ const encryptText = (text, key = SECRET_KEY) => {
   return CryptoJS.AES.encrypt(text, key).toString();
 };
 
-// const decryptText = (cipherText, key = SECRET_KEY) => {
-//   const bytes = CryptoJS.AES.decrypt(cipherText, key);
-//   return bytes.toString(CryptoJS.enc.Utf8);
-// };
-
-// Create context
 const WalletContext = createContext();
 
 // Custom hook for using wallet context
@@ -236,30 +168,7 @@ export const WalletProvider = ({ children }) => {
     navigate("/create-restore");
   };
 
-  // const submitTransaction = async (networkName, toAddress, amount, password) => {
-  //   try {
-  //     if (!wallet) throw new Error('No wallet connected');
 
-  //     const privateKeyEncrypted = wallet[networkName].privateKey;
-  //     const privateKey = decryptText(privateKeyEncrypted, password);
-
-  //     const provider = new JsonRpcProvider(NETWORK_PROVIDERS[networkName]);
-  //     const senderWallet = new Wallet(privateKey, provider);
-
-  //     const tx = await senderWallet.sendTransaction({
-  //       to: toAddress,
-  //       value: parseEther(amount.toString())
-  //     });
-
-  //     const receipt = await tx.wait();
-  //     await fetchBalances();
-
-  //     return { status: 'success', transactionHash: receipt.transactionHash };
-  //   } catch (error) {
-  //     console.error('Transaction failed:', error);
-  //     return { status: 'failed', message: error.message };
-  //   }
-  // };
   const submitTransaction = async (coin, toAddress, amount) => {
     try {
       if (!wallet) throw new Error("❌ No wallet connected");
