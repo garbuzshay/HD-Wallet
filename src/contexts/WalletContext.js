@@ -274,6 +274,7 @@ export const WalletProvider = ({ children }) => {
     if (wallet) {
       const arbitrumTransactions = await getTransactionHistory(
         "Arbitrum",
+
         wallet.Arbitrum.address
       );
 
